@@ -1,4 +1,4 @@
-project(gSDK)
+project(gimbal_tester)
 
 cmake_minimum_required(VERSION 3.5)
 
@@ -26,15 +26,15 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}
 ###############################################################################
 
 set(GSDK_APP_SRC
-    mavlink_control.cpp
+    gimbal_tester.cpp
     ${MAVLINK_SRC}/gimbal_interface.cpp
     ${MAVLINK_SRC}/serial_port.cpp
 )
 
-add_executable(gSDK ${GSDK_APP_SRC})
+add_executable(gimbal_tester ${GSDK_APP_SRC})
 
 find_package( Threads )
-target_link_libraries(gSDK
+target_link_libraries(gimbal_tester
                       ${CMAKE_THREAD_LIBS_INIT}
                       )
 
@@ -42,4 +42,4 @@ target_link_libraries(gSDK
 #        gSDK
 #        RUNTIME DESTINATION usr/bin/gSDK)
 
-add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/examples")
+# add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/examples")
